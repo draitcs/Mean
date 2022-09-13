@@ -1,0 +1,38 @@
+#include<iostream> 
+using namespace std; 
+class B;
+class A 
+{
+int x; 
+public: 
+friend float mean(A&,B&); 
+void getdata() 
+{
+cout<<"Enter a value for x : \n"; 
+cin>>x; 
+}
+};
+class B 
+{
+int y; 
+public: 
+friend float mean(A&,B&); 
+void getdata() 
+{
+cout<<"Enter a value for y : \n"; 
+cin>>y; 
+}
+};
+float mean(A &a,B &b) 
+{
+return (float)((a.x+b.y)/2.0); 
+}
+int main() 
+{
+A a; 
+a.getdata(); 
+B b; 
+b.getdata(); 
+cout<<"Mean is : \n"<<mean(a,b); 
+return 0; 
+}
